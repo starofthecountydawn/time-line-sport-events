@@ -1,0 +1,124 @@
+// --------------------------------------------------------------------------------------------------------------------
+// Button Variables
+// --------------------------------------------------------------------------------------------------------------------
+
+
+// Sizes
+
+$button-height:					44px;
+$button-s-height:				28px;
+$button-l-height:				60px;
+
+
+// Styles
+
+$button-border:					2px;
+$button-radius:					$global-border-radius;
+$button-box-shadow:				$global-box-shadow;
+
+
+// --------------------------------------------------------------------------------------------------------------------
+
+
+.btn {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background: $color-primary-500;
+	font-family: $font-family-sans-serif;
+	font-size: $font-size-m;
+	line-height: 1;
+	color: #fff;
+	text-align: center;
+	text-decoration: none !important;
+	vertical-align: baseline;
+	display: inline-block;
+	width: 100%;
+	height: $button-height;
+	border: $button-border solid $color-primary-500;
+	border-radius: $button-radius;
+	box-shadow: none;
+	margin: 0;
+	padding: 0 $spacing--m;
+	@include transitionOut();
+
+	&:hover {
+		background: $color-primary-700;
+		color: #fff;
+		border-color: $color-primary-700;
+		@include transitionIn();
+	}
+
+	&:active {
+		background: $color-primary-700;
+		color: #fff;
+		border-color: $color-primary-700;
+	}
+
+	&--secondary {
+		background: transparent;
+		color: $color-grey-700;
+		border-color: $color-grey-700;
+		box-shadow: none;
+
+		&:hover {
+			background: $color-grey-700;
+			color: #fff;
+			border-color: $color-grey-700;
+		}
+
+		&:active {
+			background: $color-grey-700;
+			color: #fff;
+			border-color: $color-grey-700;
+		}
+
+	}
+
+	&--disabled {
+		opacity: .375;
+		pointer-events: none;
+	}
+
+	&--link {
+		background: transparent !important;
+		font-size: $font-size-m;
+		color: $color-primary-500;
+		text-align: left;
+		width: auto;
+		border: 0 none;
+		padding: 0;
+
+		&:hover {
+			color: $color-primary-700;
+		}
+
+		&:active {
+			color: $color-primary-700;
+		}
+	}
+
+	&--s {
+		font-size: $font-size-xs;
+		height: $button-s-height;
+		padding: 0 $spacing--s;
+	}
+
+	&--l {
+		font-size: $font-size-l;
+		height: $button-l-height;
+		padding: 0 $spacing--l;
+	}
+
+	@include mq-s {
+		width: auto;
+	}
+
+}
+
+/* Firefox Fix */
+
+button::-moz-focus-inner, input[type=reset]::-moz-focus-inner, input[type=button]::-moz-focus-inner, input[type=submit]::-moz-focus-inner, input[type=file] > input[type=button]::-moz-focus-inner {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
